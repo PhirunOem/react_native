@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "214409186301",
+    "project_id": "reactnativetodolist-f68e0",
+    "storage_bucket": "reactnativetodolist-f68e0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:214409186301:android:0b26805881080440882794",
+        "android_client_info": {
+          "package_name": "com.tostenh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZ5wltwjWZmlYslxJgc8a7uwrj_NUJcH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

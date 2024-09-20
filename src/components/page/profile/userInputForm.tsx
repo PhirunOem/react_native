@@ -10,7 +10,23 @@ interface formProps {
 const {height, width} = Dimensions.get('screen');
 const UpdateProfilePage = (props: formProps) => {
   const dispatch = useDispatch();
-
+  const dataRender = [
+    {
+      id: '1', // acts as primary key, should be unique and non-empty string
+      label: 'Male',
+      value: 'male',
+    },
+    {
+      id: '2',
+      label: 'Female',
+      value: 'female',
+    },
+    {
+      id: '3',
+      label: 'Prefer not to say',
+      value: 'none',
+    },
+  ];
   const OpenUpdatePassword = () => {
     dispatch(setBooleanValue({type: 'UPDATEPASSWORD', booleanValue: true}));
   };
@@ -70,7 +86,7 @@ const UpdateProfilePage = (props: formProps) => {
         }
       />
       <View>
-        <RadioCustom />
+        <RadioCustom dataRender={dataRender} />
       </View>
       <View>
         <ChangePassword />

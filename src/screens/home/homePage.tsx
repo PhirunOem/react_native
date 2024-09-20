@@ -5,10 +5,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {allShoes} from '../../utils';
 import HomeHeaderActions from './homeHeaderActions';
 import {CommonActions} from '@react-navigation/native';
-export default function HomePage({
-  navigation: {navigate, setParams},
-  route,
-}: any) {
+export default function HomePage({navigation, route}: any) {
   const indexType = useSelector((state: any) => state.action.indexOfType);
   const listRef = useRef<FlatList>(null);
   useEffect(() => {
@@ -18,7 +15,7 @@ export default function HomePage({
   }, [indexType, listRef]);
 
   const pushToDetail = (index: number) => {
-    navigate('Categories', {
+    navigation.navigate('Categories', {
       screen: 'Detail',
       initial: false,
       params: {
@@ -40,7 +37,7 @@ export default function HomePage({
   return (
     <View>
       <View>
-        <HomeHeaderActions />
+        <HomeHeaderActions {...navigation} />
       </View>
       <FlatList
         ref={listRef}

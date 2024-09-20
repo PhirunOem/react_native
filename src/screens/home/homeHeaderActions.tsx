@@ -12,7 +12,9 @@ import {
 {
   /* ::::: part of user action that they click to see what content they want::::: */
 }
-const HomeHeaderActions: React.FC = () => {
+const HomeHeaderActions: React.FC = navigation => {
+  console.log(navigation);
+
   const indexType = useSelector((state: any) => state.action.indexOfType);
   const filterValue = useSelector((state: any) => state.action.categoryType);
   const dispatch = useDispatch();
@@ -56,7 +58,7 @@ const HomeHeaderActions: React.FC = () => {
         <FilterCategoryPage />
       </View>
       <View>
-        <SignInPage />
+        <SignInPage {...navigation} />
         <SignInWithPage />
       </View>
     </View>

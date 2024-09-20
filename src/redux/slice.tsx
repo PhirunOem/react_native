@@ -1,5 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
-import validator, {toString} from 'validator';
+import {userModels} from '../core';
+
 // ::::::::::::::::: This is react dux which used to control all global state::::::::::::::::::::
 const initialState = {
   isClickOneOfProductType: false,
@@ -12,12 +13,14 @@ const initialState = {
   isUpdatePassword: false,
   isAddToFavorite: false,
   isAddToCart: false,
+  isAddNewColor: false,
   categoryType: 'MEN', // ['MEN', 'WOMEN', 'KID']
 };
 
 interface setBooleanValueType {
   payload: {type: string; booleanValue: boolean};
 }
+
 export const actionSlice = createSlice({
   name: 'action',
   initialState,
@@ -58,6 +61,9 @@ export const actionSlice = createSlice({
           break;
         case 'ADDTOCART':
           state.isAddToCart = booleanValue;
+          break;
+        case 'ADDNEWCOLOR':
+          state.isAddNewColor = booleanValue;
           break;
         default:
           console.log('Invalid prop');

@@ -14,6 +14,7 @@ import ProductStatusScrollable from "./productStatusScrollable";
 import ListChildCustom from "./listChildCustom";
 import PercentageBarCustom from "./percentageBarCustom";
 import ModalCustomWithAction from "./modalCustomWithAction";
+import DropDownCustom from "./dropDownCustom";
 export {
     TextInputCustom, 
     ButtonCustom, 
@@ -29,5 +30,6 @@ export {
     ProductStatusScrollable,
     ListChildCustom,
     PercentageBarCustom,
-    ModalCustomWithAction
+    ModalCustomWithAction,
+    DropDownCustom
 }

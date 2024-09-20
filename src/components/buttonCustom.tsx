@@ -1,6 +1,12 @@
 import {theme} from '../core';
 import React from 'react';
-import {StyleSheet, Pressable, Text, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Pressable,
+  Text,
+  TouchableOpacity,
+  ViewStyle,
+} from 'react-native';
 import {View} from 'react-native-animatable';
 import Icon from 'react-native-vector-icons/Ionicons';
 interface ButtonCustomProps {
@@ -28,6 +34,7 @@ interface ButtonCustomProps {
   isReversIconAndText?: boolean;
   isCenter?: boolean;
   gap?: number;
+  style?: ViewStyle;
 }
 const ButtonCustom = (props: ButtonCustomProps) => {
   return (

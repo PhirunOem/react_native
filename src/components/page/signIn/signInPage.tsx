@@ -10,12 +10,19 @@ import {
 import React from 'react';
 import {setBooleanValue} from '../../../redux/slice';
 import {theme} from '../../../core';
-export default function SignInPage() {
+export default function SignInPage(navigation: any) {
   const isOpenSignIn = useSelector((state: any) => state.action.isSignIn);
   const dispatch = useDispatch();
   const OpenSignInWith = () => {
     dispatch(setBooleanValue({type: 'SIGNIN', booleanValue: false}));
     dispatch(setBooleanValue({type: 'SIGNINWITH', booleanValue: true}));
+  };
+  const _pushToCreateProduct = () => {
+    dispatch(setBooleanValue({type: 'SIGNIN', booleanValue: false}));
+    navigation.navigate('Home', {
+      screen: 'CreateProduct',
+      initial: false,
+    });
   };
   return (
     <View>
@@ -55,10 +62,8 @@ export default function SignInPage() {
                 </View>
                 <View>
                   <ButtonCustom
-                    onPress={function (): void {
-                      console.log('Join club is pressed!!');
-                    }}
-                    title={'JOIN THE CLUB'}
+                    onPress={_pushToCreateProduct}
+                    title={'ADD PRODUCTS'} //JOIN THE CLUB
                     backgroundColor={theme.colors.primary}
                     paddingVertical={10}
                     paddingHorizontal={8}

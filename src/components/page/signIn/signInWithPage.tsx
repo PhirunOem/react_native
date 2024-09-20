@@ -1,5 +1,5 @@
 import ModalCustom from '../../../components/modalCustom';
-import React from 'react';
+import React, {useState} from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
 import {Divider, Text} from 'react-native-elements';
 import {useDispatch, useSelector} from 'react-redux';
@@ -8,6 +8,14 @@ import IconCustom from '../../../components/iconCustom';
 import ButtonCustom from '../../../components/buttonCustom';
 import {theme} from '../../../core';
 import SignInWithEmailPage from './signInWithEmailPage';
+import SignInWithGoogle from './signInWithGoogle';
+import {
+  handleSignInWithPhoneNumber,
+  handleSignInWithFacebook,
+} from '../../../firebase/funcs';
+import {auth} from '../../../firebase/config';
+import {Button} from '@rneui/base';
+import LoginWithFacebook from './signInWithFacebook';
 
 const SignInWithPage: React.FC = () => {
   const isOpenSignInWith = useSelector(
@@ -42,7 +50,7 @@ const SignInWithPage: React.FC = () => {
                 />
               </View>
               <View>
-                <SignInWithGoogleButton />
+                <SignInWithGoogle />
               </View>
               <View style={styles.textWithLine}>
                 <View style={{flex: 1}}>
@@ -57,16 +65,24 @@ const SignInWithPage: React.FC = () => {
               </View>
               <View style={styles.otheraction}>
                 <ButtonWithIcon
-                  onClick={() => console.log('clicked!!')}
+                  onClick={() => {
+                    handleSignInWithFacebook();
+                  }}
                   iconName={'logo-facebook'}
                   label={'Facebook'}
                 />
+                <LoginWithFacebook />
                 <Divider />
                 <ButtonWithIcon
-                  onClick={() => console.log('clicked!!')}
+                  onClick={() => {
+                    console.log(
+                      '::::::::::: sign in with phone number :::::::',
+                    );
+                  }}
                   iconName={'call'}
                   label={'Phone number'}
                 />
+
                 <Divider />
                 <ButtonWithIcon
                   onClick={OpenSignInWithEmail}
@@ -134,29 +150,6 @@ const ButtonWithIcon = (props: Props) => {
       gap={15}
       borderRaduis={6}
       iconSize={20}
-    />
-  );
-};
-const SignInWithGoogleButton = () => {
-  return (
-    <ButtonCustom
-      onPress={function (): void {
-        console.log(':::: sign in with google ::::');
-      }}
-      title={'Sign in with google'}
-      textColor="#00F0FF"
-      letterSpacing={0}
-      fontSize={18}
-      isIcon
-      backgroundColor={theme.colors.primary}
-      isCenter
-      iconName="logo-google"
-      isReversIconAndText
-      paddingVertical={8}
-      iconColor="black"
-      isSemiBoldText
-      borderRaduis={6}
-      iconSize={16}
     />
   );
 };

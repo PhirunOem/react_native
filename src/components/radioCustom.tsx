@@ -1,35 +1,37 @@
-import React, {useMemo, useState} from 'react';
+import React, {ReactNode, useMemo, useState} from 'react';
+import {StyleProp, TextStyle, ViewStyle} from 'react-native';
 import RadioGroup, {RadioButtonProps} from 'react-native-radio-buttons-group';
 
-export default function RadioCustom() {
-  const radioButtons: RadioButtonProps[] = useMemo(
-    () => [
-      {
-        id: '1', // acts as primary key, should be unique and non-empty string
-        label: 'Male',
-        value: 'male',
-      },
-      {
-        id: '2',
-        label: 'Female',
-        value: 'female',
-      },
-      {
-        id: '3',
-        label: 'Prefer not to say',
-        value: 'none',
-      },
-    ],
-    [],
-  );
-
+interface Props {
+  dataRender: Array<{
+    id: string;
+    label: string | ReactNode;
+    value: string;
+    borderSize?: number;
+    size?: number;
+    containerStyle?: ViewStyle;
+    disabled?: boolean;
+  }>;
+  isColumn?: boolean;
+  onPress?(id: any): void;
+  containerStyle?: StyleProp<ViewStyle>;
+}
+export default function RadioCustom(props: Props) {
   const [selectedId, setSelectedId] = useState<string | undefined>();
+  //click event happen in child , but will return id value to parent when parent call onPress(id:any)
+  const hadleSelect = (id: any) => {
+    setSelectedId(id);
+    if (props.onPress) {
+      props.onPress(id);
+    }
+  };
   return (
     <RadioGroup
-      radioButtons={radioButtons}
-      onPress={setSelectedId}
+      radioButtons={props.dataRender}
+      onPress={hadleSelect}
       selectedId={selectedId}
-      layout="row"
+      layout={props.isColumn ? 'column' : 'row'}
+      containerStyle={props.containerStyle}
     />
   );
 }

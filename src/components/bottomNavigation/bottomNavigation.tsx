@@ -17,6 +17,7 @@ import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
 
 export default function BottomNavigation() {
   const globleOptions: BottomTabNavigationOptions = {
+    tabBarHideOnKeyboard: true,
     tabBarActiveBackgroundColor: '#007B82',
     tabBarActiveTintColor: '#00F0FF',
     tabBarInactiveTintColor: 'white',

@@ -5,6 +5,7 @@ import {
   ListAllTypeOfProductType,
   ListAllProductOfType,
 } from './listProductPage';
+import {CreateProductPage} from './createProduct';
 export {
   FilterCategoryPage,
   SignInPage,
@@ -12,4 +13,5 @@ export {
   ProductDetailPage,
   ListAllTypeOfProductType,
   ListAllProductOfType,
+  CreateProductPage,
 };

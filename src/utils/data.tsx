@@ -357,4 +357,17 @@ const allShoes = [
   },
 ];
 
-export {categoryData, sliderImage, allShoes};
+const allAvailableColors = [
+  {label: 'Red', value: 'red'},
+  {label: 'White', value: 'white'},
+  {label: 'Black', value: 'black'},
+  {label: 'Purple', value: 'purple'},
+  {label: 'Blue', value: 'blue'},
+  {label: 'Gold', value: 'gold'},
+  {label: 'Grey', value: 'grey'},
+  {label: 'Yellow', value: 'yellow'},
+  {label: 'Green', value: 'green'},
+  {label: 'Pink', value: 'pink'},
+];
+
+export {categoryData, sliderImage, allShoes, allAvailableColors};

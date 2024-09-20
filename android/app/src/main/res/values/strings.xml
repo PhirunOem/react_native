@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TosTenh</string>
+    <string name="facebook_app_id">641634538454754</string>
+    <string name="facebook_client_token">d2738e2b4284b54cd38afe72a994048b</string>
+    <string name="fb_login_protocol_scheme">fb641634538454754</string>
+    
 </resources>

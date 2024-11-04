@@ -7,3 +7,5 @@ export const store = configureStore({
     user: userSliceAction,
   },
 });
+
+export type AppDispatch = typeof store.dispatch
